@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "2.26.0"
+  version: "3.0.2"
   python_min: "3.12"
 
 package:
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://github.com/mistralai/mistral-vibe/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 01a116f531418d31ff24ba96c8680ed389ccaa721e9c0b5ceaa762ad63280fcd
+    sha256: aa94030b41744eb2cfdcc21f5848ecf9c6b924421b42b682cc5480771877b50c
     patches:
       - 0001-Relax-constraints-on-dependencies.patch
       # upstream builds with maturin to bundle the optional Rust harness; we ship pure Python
@@ -19,7 +19,7 @@ source:
       - 0003-Handle-optional-mistralai_vibe_local_harness-import.patch
 
 build:
-  number: 1
+  number: 0
   script:
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
   noarch: python
